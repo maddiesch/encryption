@@ -60,7 +60,7 @@ type GenerateKeyOutput struct {
 
 // PrivatePEM marshales the private key into x509 pem format
 func (g *GenerateKeyOutput) PrivatePEM() ([]byte, error) {
-	x509Private, err := x509.MarshalECPrivateKey(g.PrivateKey)
+	x509Private, err := x509.MarshalPKCS8PrivateKey(g.PrivateKey)
 	if err != nil {
 		return nil, err
 	}
